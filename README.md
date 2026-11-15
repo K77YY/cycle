@@ -15,7 +15,7 @@ cd cycle/packaging
 makepkg -si
 ```
 
-Update later:
+Update:
 
 ```bash
 cd cycle && git pull
