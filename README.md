@@ -19,12 +19,12 @@ Update later:
 
 ```bash
 cd cycle && git pull
-cd packaging && makepkg -sif      # -f rebuilds and overwrites the existing package
+cd packaging && makepkg -sif
 ```
 
 Uninstall: `sudo pacman -R cycle`
 
-### Option 2: prebuilt binary (fastest)
+### Option 2: prebuilt binary
 
 Download the latest `cycle-vX.Y.Z-x86_64-linux.tar.gz` from the
 [Releases page](https://github.com/K77YY/cycle/releases), then:
@@ -46,11 +46,11 @@ cargo install --git https://github.com/K77YY/cycle
 ### Optional packages
 
 ```bash
-sudo pacman -S --needed noto-fonts-cjk                 # Japanese font, if you have none
-sudo pacman -S --needed sound-theme-freedesktop pipewire   # end-of-stage sound (or libpulse instead of pipewire)
+sudo pacman -S --needed noto-fonts-cjk #japanese font if you have none
+sudo pacman -S --needed sound-theme-freedesktop pipewire #end-of-stage sound (or libpulse instead of pipewire)
 ```
 
-Without these the timer still works; the sound falls back to the terminal bell.
+Without these the timer still works.
 
 ## Usage
 
@@ -64,8 +64,8 @@ Times are typed as `25` (minutes) or `1:30` (minutes:seconds).
 
 ```
 ~/.config/cycle/
-├── settings.json                 # sound on/off, last used sequence
-└── sequences/<name>.json         # one file per saved sequence
+├── settings.json
+└── sequences/<name>.json
 ```
 
 (`$XDG_CONFIG_HOME/cycle/` is used if set.) Sequence files are plain JSON and can be
