@@ -19,7 +19,7 @@ makepkg -si
 
 ```bash
 cd cycle && git pull
-cd packaging && makepkg -sif      # -f で再ビルドし、既存のパッケージを上書きします
+cd packaging && makepkg -sif
 ```
 
 アンインストール: `sudo pacman -R cycle`
@@ -31,7 +31,7 @@ cd packaging && makepkg -sif      # -f で再ビルドし、既存のパッケ�
 
 ```bash
 tar xzf cycle-v*-x86_64-linux.tar.gz
-install -Dm755 cycle-v*-x86_64-linux/cycle ~/.local/bin/cycle   # または: sudo install -Dm755 ... /usr/local/bin/cycle
+install -Dm755 cycle-v*-x86_64-linux/cycle ~/.local/bin/cycle #または: sudo install -Dm755 ... /usr/local/bin/cycle
 cycle
 ```
 
@@ -46,8 +46,8 @@ cargo install --git https://github.com/K77YY/cycle
 ### 追加パッケージ (任意)
 
 ```bash
-sudo pacman -S --needed noto-fonts-cjk                     # 日本語フォント (未導入の場合)
-sudo pacman -S --needed sound-theme-freedesktop pipewire   # ステージ終了音 (pipewire の代わりに libpulse でも可)
+sudo pacman -S --needed noto-fonts-cjk #日本語フォント (未導入の場合)
+sudo pacman -S --needed sound-theme-freedesktop pipewire #ステージ終了音 (pipewire の代わりに libpulse でも可)
 ```
 
 これらがなくてもタイマーは動きます。その場合、音は端末のベルになります。
@@ -64,8 +64,8 @@ cycle
 
 ```
 ~/.config/cycle/
-├── settings.json                 # 音のオン/オフ、最後に使ったシーケンス
-└── sequences/<名前>.json         # 保存したシーケンスごとに 1 ファイル
+├── settings.json
+└── sequences/<名前>.json
 ```
 
 (`$XDG_CONFIG_HOME` が設定されている場合は `$XDG_CONFIG_HOME/cycle/` を使います。)
