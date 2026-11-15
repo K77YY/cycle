@@ -1,34 +1,12 @@
 # cycle
 
-A minimal, good-looking **interval timer for the terminal** (Rust + Ratatui).
-Chain focus and break stages into a sequence and let it loop, e.g.
-**読書 55 min → 休憩 5 min → 漢検 25 min → 休憩 5 min → repeat**.
+A minimal,  tui interval timer with a japanese UI. Made for Arch Linux and Android.
 
-The UI is entirely in Japanese. · [日本語 README](README.ja.md)
-
-- Large countdown, progress bar, cycle counter, time left in the cycle
-- Custom sequences: add / edit / delete / reorder stages, loop forever
-- Save and load multiple sequences; the last one is restored on startup
-- Optional end-of-stage sound (toggle with `m`), no desktop notifications
-- Foreground colors only: your terminal's transparent / blurred background
-  stays visible, and it works on light and dark themes
+Visuals adapt to your terminal.
 
 ## Install (Arch Linux)
 
-### Option 1: prebuilt binary (fastest)
-
-Download the latest `cycle-vX.Y.Z-x86_64-linux.tar.gz` from the
-[Releases page](https://github.com/K77YY/cycle/releases), then:
-
-```bash
-tar xzf cycle-v*-x86_64-linux.tar.gz
-install -Dm755 cycle-v*-x86_64-linux/cycle ~/.local/bin/cycle   # or: sudo install -Dm755 ... /usr/local/bin/cycle
-cycle
-```
-
-Make sure `~/.local/bin` is in your `PATH`.
-
-### Option 2: build a pacman package (recommended)
+### Option 1: build a pacman package (recommended)
 
 Installs, upgrades and uninstalls cleanly through pacman.
 
@@ -48,6 +26,19 @@ cd packaging && makepkg -sif      # -f rebuilds and overwrites the existing pack
 
 Uninstall: `sudo pacman -R cycle`
 
+### Option 2: prebuilt binary (fastest)
+
+Download the latest `cycle-vX.Y.Z-x86_64-linux.tar.gz` from the
+[Releases page](https://github.com/K77YY/cycle/releases), then:
+
+```bash
+tar xzf cycle-v*-x86_64-linux.tar.gz
+install -Dm755 cycle-v*-x86_64-linux/cycle ~/.local/bin/cycle   # or: sudo install -Dm755 ... /usr/local/bin/cycle
+cycle
+```
+
+Make sure `~/.local/bin` is in your `PATH`.
+
 ### Option 3: cargo
 
 ```bash
@@ -63,48 +54,11 @@ sudo pacman -S --needed sound-theme-freedesktop pipewire   # end-of-stage sound 
 
 Without these the timer still works; the sound falls back to the terminal bell.
 
-## Android app
-
-A phone version with the same features (sequences, loop, sound toggle, hide-menu mode) lives in
-[`android/`](android/README.md). It is FOSS-only (no Google services, no network access) and
-built for F-Droid. Sequence JSON files are compatible with the terminal version.
-
 ## Usage
 
 ```bash
 cycle
 ```
-
-The default sequence loads automatically. Press `Space` to start, `q` to quit.
-
-| Key | Action |
-|---|---|
-| `Space` | Pause / resume (一時停止 / 再開) |
-| `n` / `→` | Next stage |
-| `p` / `←` | Previous stage |
-| `r` | Reset the whole session (cycle 1, stage 1) |
-| `e` | Edit sequence |
-| `s` | Save sequence (asks for a name) |
-| `l` | Load sequence |
-| `m` | Sound on / off |
-| `h` | Hide / show the menu (only the countdown and progress bar stay; remembered) |
-| `?` | Help |
-| `q` / `Ctrl+C` | Quit |
-
-### Editor (`e`)
-
-| Key | Action |
-|---|---|
-| `↑` `↓` / `j` `k` | Select stage |
-| `a` | Add stage (inserted after the selection) |
-| `Enter` / `e` | Edit stage (name, time, type) |
-| `x` / `d` / `Delete` | Delete stage |
-| `Shift+↑↓` / `J` `K` | Reorder |
-| `t` | Toggle 集中 (focus) ⇄ 休憩 (break) |
-| `+` / `-` | Time ±1 minute |
-| `o` | Loop on / off |
-| `n` | Rename sequence |
-| `Esc` / `q` | Finish editing (applied and auto-saved) |
 
 Times are typed as `25` (minutes) or `1:30` (minutes:seconds).
 
