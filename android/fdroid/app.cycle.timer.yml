@@ -1,0 +1,27 @@
+# fdroiddata リポジトリの metadata/app.cycle.timer.yml として提出するテンプレート。
+# K77YY を GitHub ユーザー名に置き換えてください。
+Categories:
+  - Time
+  - Science & Education
+License: MIT
+WebSite: https://github.com/K77YY/cycle
+SourceCode: https://github.com/K77YY/cycle
+IssueTracker: https://github.com/K77YY/cycle/issues
+
+AutoName: cycle
+
+RepoType: git
+Repo: https://github.com/K77YY/cycle.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: android-v1.0.0
+    subdir: android/app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^android-v
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1

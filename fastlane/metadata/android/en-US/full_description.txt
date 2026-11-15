@@ -1,0 +1,12 @@
+cycle chains focus and break stages into a sequence and loops it, e.g. 読書 55 min → 休憩 5 min → 漢検 25 min → 休憩 5 min → repeat.
+
+• Large countdown, progress bar, cycle counter, time left in the cycle
+• Custom sequences: add, edit, delete and reorder stages; loop forever
+• Save and load multiple sequences; the last one is restored on launch
+• Optional end-of-stage beep, toggle on the main screen
+• Hide-menu mode: only the countdown and progress bar (tap = pause/resume, long-press = show menu)
+• Keeps running with the screen off (foreground service)
+• Follows system light/dark theme and Material You colors
+• No ads, no tracking, no network access, no Google services
+
+The interface is in Japanese. Sequence files use the same JSON format as the desktop (terminal) version of cycle.

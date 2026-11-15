@@ -1,0 +1,1 @@
+Clean interval timer for focus/break routines. Japanese UI.

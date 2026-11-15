@@ -1,0 +1,38 @@
+# AUR 投稿用 (GitHub のタグ付きソースからビルド)。
+# K77YY を自分の GitHub ユーザー名に置き換えてください。
+# pkgver は Cargo.toml / Git タグ (v$pkgver) と揃えます。
+pkgname=cycle-tui
+pkgver=0.2.1
+pkgrel=1
+pkgdesc='シンプルで美しい TUI インターバルタイマー (Rust + Ratatui)'
+arch=('x86_64' 'aarch64')
+url='https://github.com/K77YY/cycle'
+license=('MIT')
+depends=('gcc-libs')
+makedepends=('cargo')
+optdepends=('pipewire: 終了音の再生 (pw-play)'
+            'libpulse: 終了音の再生 (paplay)'
+            'sound-theme-freedesktop: 終了音のサウンドファイル'
+            'noto-fonts-cjk: 日本語フォント')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
+sha256sums=('SKIP')   # `updpkgsums` で実際の値に更新
+
+prepare() {
+  cd "cycle-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+  cd "cycle-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  cargo build --frozen --release
+}
+
+package() {
+  cd "cycle-$pkgver"
+  install -Dm755 target/release/cycle "$pkgdir/usr/bin/cycle"
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

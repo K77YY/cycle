@@ -1,0 +1,34 @@
+# Maintainer: you
+# ローカルのソースツリー (1つ上のディレクトリ) からビルドする PKGBUILD。
+# このディレクトリ (packaging/) で `makepkg -si` を実行してください。
+# makepkg は ./src を作業用に使うため、Rust の src/ と衝突しないよう分けています。
+pkgname=cycle
+pkgver=0.2.1
+pkgrel=1
+pkgdesc='シンプルで美しい TUI インターバルタイマー (Rust + Ratatui)'
+arch=('x86_64' 'aarch64')
+license=('MIT')
+depends=('gcc-libs')
+makedepends=('cargo')
+optdepends=('pipewire: 終了音の再生 (pw-play)'
+            'libpulse: 終了音の再生 (paplay)'
+            'sound-theme-freedesktop: 終了音のサウンドファイル'
+            'noto-fonts-cjk: 日本語フォント')
+
+build() {
+  cd "$startdir/.."
+  export CARGO_TARGET_DIR="$srcdir/target"
+  cargo build --release
+}
+
+check() {
+  cd "$startdir/.."
+  export CARGO_TARGET_DIR="$srcdir/target"
+  cargo test --release
+}
+
+package() {
+  install -Dm755 "$srcdir/target/release/cycle" "$pkgdir/usr/bin/cycle"
+  install -Dm644 "$startdir/../README.md" "$pkgdir/usr/share/doc/$pkgname/README.md"
+  install -Dm644 "$startdir/../LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
