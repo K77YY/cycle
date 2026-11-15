@@ -6,7 +6,7 @@ A minimal,  tui interval timer with a japanese UI. Made for Arch Linux and Andro
 
 ### Option 1: build a pacman package (recommended)
 
-Installs, upgrades and uninstalls cleanly through pacman.
+Install:
 
 ```bash
 sudo pacman -S --needed git base-devel rust
