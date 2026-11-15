@@ -31,7 +31,7 @@ Download the latest `cycle-vX.Y.Z-x86_64-linux.tar.gz` from the
 
 ```bash
 tar xzf cycle-v*-x86_64-linux.tar.gz
-install -Dm755 cycle-v*-x86_64-linux/cycle ~/.local/bin/cycle   # or: sudo install -Dm755 ... /usr/local/bin/cycle
+sudo install -Dm755 cycle-v*-x86_64-linux/cycle ~/.local/bin/cycle
 cycle
 ```
 
@@ -73,8 +73,6 @@ edited, copied or deleted by hand. To restore the defaults: `rm -rf ~/.config/cy
 
 ## Troubleshooting
 
-- **Boxes / bars look misaligned**: turn off "treat East Asian ambiguous-width characters as wide"
-  in your terminal's settings.
 - **Japanese shows as □**: install `noto-fonts-cjk` and select a CJK-capable font.
 - **No sound**: install `sound-theme-freedesktop` plus `pipewire` (or `libpulse`).
 
