@@ -2,8 +2,6 @@
 
 A minimal,  tui interval timer with a japanese UI. Made for Arch Linux and Android.
 
-Visuals adapt to your terminal.
-
 ## Install (Arch Linux)
 
 ### Option 1: build a pacman package (recommended)
