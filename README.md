@@ -108,15 +108,6 @@ The default sequence loads automatically. Press `Space` to start, `q` to quit.
 
 Times are typed as `25` (minutes) or `1:30` (minutes:seconds).
 
-### Example: build the 55 → 5 → 25 → 5 sequence
-
-1. `e` to open the editor.
-2. `a` → name `読書`, time `55`, type 集中 → `Enter`
-3. `a` → name `休憩`, time `5`, `Tab` `Tab` then `Space` to switch to 休憩 → `Enter`
-4. `a` → name `漢検`, time `25`, type 集中 → `Enter`
-5. `a` → name `休憩`, time `5`, type 休憩 → `Enter`
-6. Check that loop is on (`o` toggles), press `n` to name it, then `Esc`.
-
 ## Files
 
 ```
